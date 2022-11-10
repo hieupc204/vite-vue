@@ -1,6 +1,7 @@
 import axios from 'axios'
 // create an axios instance
 const service = axios.create({
+  // baseURL : "https://jsonplaceholder.typicode.com",
   baseURL: process.env.VUE_APP_API, // url = base url + request url
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
@@ -37,6 +38,7 @@ service.interceptors.response.use(
   response => {
    
     const res = response.data;
+    return res;
     console.log(res); // for
     if(res.ErrorCode == 0){
         return res;
